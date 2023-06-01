@@ -2,15 +2,23 @@ package com.example.myinteractivecv.model;
 
 import lombok.*;
 
+import javax.persistence.*;
+
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @ToString
 public class Education {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String universityName;
     private String Speciality;
     private String yearsOfStudy;
-    private Long userId;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User userId;
 
 }

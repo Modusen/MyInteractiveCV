@@ -5,12 +5,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.*;
+@Entity
+@Table(name = "socials")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @ToString
 public class Social {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String link;
-    private Long userId;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User userId;
 }
