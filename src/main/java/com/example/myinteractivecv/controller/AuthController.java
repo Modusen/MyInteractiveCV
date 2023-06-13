@@ -4,13 +4,11 @@ import com.example.myinteractivecv.dto.LoginReqDto;
 import com.example.myinteractivecv.model.Role;
 import com.example.myinteractivecv.model.User;
 import com.example.myinteractivecv.service.AuthService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import static com.example.myinteractivecv.model.Role.CANDIDATE;

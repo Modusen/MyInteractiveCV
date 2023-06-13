@@ -6,17 +6,25 @@ import com.example.myinteractivecv.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @Service
 @AllArgsConstructor
+
 public class UserService {
     private final UserRepository userRepository;
 
     public User getUserById(Integer id) {
-        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found. ID: " + id));
+        return findUserById(id);
     }
 
     public void deleteUser(Integer id) {
         userRepository.deleteById(id);
+    }
+
+    public User findUserById(Integer id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("User with id=" + id + " not found"));
     }
 
 }

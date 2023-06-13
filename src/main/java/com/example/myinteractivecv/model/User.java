@@ -29,8 +29,8 @@ public class User {
     private Image image;
     @OneToMany(mappedBy = "userId")
     private List<Education> educationList;
-    @OneToMany(mappedBy = "userId")
-    private List<Social> socialsList;
+//    @OneToMany(mappedBy = "userId")
+//    private List<Social> socialsList;
 
     private String aboutMe;
 
