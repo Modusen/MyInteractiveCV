@@ -15,8 +15,8 @@ public class EducationService {
 
     EducationRepository educationRepository;
 
-    public void addEducation(Education education) {
-        educationRepository.save(education);
+    public Education addEducation(Education education) {
+        return educationRepository.save(education);
     }
 
     public Education getEducation(Integer id) {

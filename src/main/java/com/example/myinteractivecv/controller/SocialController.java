@@ -29,7 +29,7 @@ public class SocialController {
         return ResponseEntity.ok(socialService.addSocial(social));
     }
 
-    @PatchMapping("")
+    @PatchMapping("/edit")
     public ResponseEntity<Social> editSocialById(@RequestBody Social social) {
         return ResponseEntity.ok(socialService.editSocial(social));
     }

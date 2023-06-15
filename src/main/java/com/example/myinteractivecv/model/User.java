@@ -27,8 +27,8 @@ public class User {
     @OneToOne
     @JoinColumn(name = "image")
     private Image image;
-    @OneToMany(mappedBy = "userId")
-    private List<Education> educationList;
+//    @OneToMany(mappedBy = "userId")
+//    private List<Education> educationList;
 //    @OneToMany(mappedBy = "userId")
 //    private List<Social> socialsList;
 
