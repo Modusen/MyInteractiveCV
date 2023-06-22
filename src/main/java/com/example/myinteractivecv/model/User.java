@@ -5,9 +5,8 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
-@Entity
 @Data
+@Entity
 @ToString
 @Table(name = "users")
 public class User {

@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import static com.example.myinteractivecv.model.Role.CANDIDATE;
@@ -18,9 +19,19 @@ import static com.example.myinteractivecv.model.Role.CANDIDATE;
 public class AuthController {
     private final AuthService authService;
 
+    //    @PostMapping("/login")
+//    public ResponseEntity<?> login(@RequestBody LoginReqDto req) {
+//        if (authService.login(req.getEmail(), req.getPassword())) {
+//            return ResponseEntity.ok().build();
+//        } else {
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+//        }
+//    }
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginReqDto req) {
-        if (authService.login(req.getEmail(), req.getPassword())) {
+    public ResponseEntity<?> login(@RequestParam(name = "email") String email,
+                                   @RequestParam(name = "password") String password) {
+        if (authService.login(email, password)) {
+            System.out.println("Прошла аутентификация");
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();

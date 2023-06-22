@@ -1,5 +1,8 @@
 package com.example.myinteractivecv.config;
 
+import com.example.myinteractivecv.security.UserDetailsServiceImpl;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,6 +17,8 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
+//    private UserDetailsServiceImpl userDetailsImpl;
+
     private static final String[] AUTH_WHITELIST = {
             "/swagger-resources/**",
             "/swagger-ui.html",
@@ -25,15 +30,18 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf()
-                .disable()
+        http
+                .csrf().disable()
                 .authorizeHttpRequests(
                         (authorization) ->
                                 authorization
-                                        .mvcMatchers(AUTH_WHITELIST)
-                                        .permitAll()
+                                        .mvcMatchers(AUTH_WHITELIST).permitAll()
                                         .mvcMatchers("/greetings/**")
                                         .authenticated())
+                .formLogin().loginPage("/login").loginProcessingUrl("/login")
+                .defaultSuccessUrl("/greetings", true)
+                .failureUrl("/login?error")
+                .and()
                 .cors()
                 .and()
                 .httpBasic(withDefaults());

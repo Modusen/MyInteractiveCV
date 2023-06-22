@@ -25,8 +25,11 @@ public class AuthService {
             return false;
         }
         user.setRole(role);
-        user.setPassword(encoder.encode(user.getPassword()));
-        userRepository.save(user);
-        return true;
+        if (user.getPassword().equals(user.getConfirmPassword())) {
+            user.setPassword(encoder.encode(user.getPassword()));
+            user.setConfirmPassword(encoder.encode(user.getConfirmPassword()));
+            userRepository.save(user);
+            return true;
+        } return false;
     }
 }
