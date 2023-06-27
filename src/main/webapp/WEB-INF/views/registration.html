@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Registration</title>
+    <!--  <script type="text/javascript" src="/js/jquery-3.6.0.js"></script>-->
+</head>
+
+<body>
+<div class="w3-container">
+
+    <div class="w3-container w3-bar w3-blue">
+        <span class="w3-bar-item" style="padding-left:1px"><b>Registration</b></span>
+
+        <a href="/home" class="w3-bar-item w3-button" style="float: right;">
+            <img th:src="@{/images/icon_home.png}"
+                 alt="home"
+                 style="width:27px;height:27px;"
+                 title="home"></a>
+    </div>
+
+    <br>
+    <h2>Hello!! <br> This is MyInteractiveCV registration page</h2>
+    <form name="f" th:method="POST" th:action="@{/registration}" th:object="${user}">
+
+        <label for="email">Email: </label>
+        <input type="text" th:field="*{email}" id="email"/>
+        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email name</div>
+        <br>
+        <br>
+        <label for="password">Password: </label>
+        <input type="text" th:field="*{password}" id="password"/>
+        <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password</div>
+        <br>
+        <br>
+        <label for="confirmPassword">Confirm Password: </label>
+        <input type="text" th:field="*{confirmPassword}" id="confirmPassword"/>
+        <div style="color:red" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirm Password</div>
+        <br>
+        <br>
+        <label for="firstName">First Name: </label>
+        <input type="text" th:field="*{firstName}" id="firstName"/>
+        <div style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First name</div>
+        <br>
+        <br>
+        <label for="lastName">Last Name: </label>
+        <input type="text" th:field="*{lastName}" id="lastName"/>
+        <div style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last name</div>
+        <br>
+        <br>
+        <label for="specialization">Specialization: </label>
+        <input type="text" th:field="*{specialization}" id="specialization"/>
+        <div style="color:red" th:if="${#fields.hasErrors('specialization')}" th:errors="*{specialization}">Specialization</div>
+        <br>
+        <br>
+        <label for="city">City: </label>
+        <input type="text" th:field="*{city}" id="city"/>
+        <div style="color:red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City</div>
+        <br>
+        <br>
+        <label for="birthDate">Birth Date: </label>
+        <input type="date" th:field="*{birthDate}" id="birthDate"/>
+        <div style="color:red" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">Birth Date</div>
+        <br>
+        <br>
+        <label for="aboutMe">About Me: </label>
+        <input type="text" th:field="*{aboutMe}" id="aboutMe"/>
+        <div style="color:red" th:if="${#fields.hasErrors('aboutMe')}" th:errors="*{aboutMe}">About Me</div>
+        <br>
+        <br>
+        <input type="submit" value="Register">
+    </form>
+
+</div>
+</body>
+</html>

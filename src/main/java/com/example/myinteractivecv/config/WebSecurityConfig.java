@@ -25,7 +25,7 @@ public class WebSecurityConfig {
             "/v3/api-docs",
             "/webjars/**",
             "/login",
-            "/register"
+            "/registration"
     };
 
     @Bean
@@ -41,6 +41,8 @@ public class WebSecurityConfig {
                 .formLogin().loginPage("/login").loginProcessingUrl("/login")
                 .defaultSuccessUrl("/greetings", true)
                 .failureUrl("/login?error")
+                .and()
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/login")
                 .and()
                 .cors()
                 .and()

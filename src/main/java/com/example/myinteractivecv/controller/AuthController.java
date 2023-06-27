@@ -7,10 +7,7 @@ import com.example.myinteractivecv.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static com.example.myinteractivecv.model.Role.CANDIDATE;
 
@@ -38,8 +35,8 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody User user) {
+    @PostMapping("/registration")
+    public ResponseEntity<?> register(@ModelAttribute("user") User user) {
         Role role = user.getRole() == null ? CANDIDATE : user.getRole();
         if (authService.register(user, role)) {
             return ResponseEntity.status(HttpStatus.CREATED).build();
