@@ -13,6 +13,12 @@
 <div class="w3-container">
     <div class="w3-container w3-bar w3-blue">
         <span class="w3-bar-item" style=""><b>Login Page</b></span>
+
+        <a href="/home" class="w3-bar-item w3-button" style="float: right;">
+            <img th:src="@{/images/icon_home.png}"
+                 alt="home"
+                 style="width:27px;height:27px;"
+                 title="home"></a>
     </div>
 
     <br>
@@ -33,6 +39,9 @@
         <div th:if="${param.error}" style="color:orangered">
             Authentication Error
         </div>
+    </form>
+    <form action="/registration">
+        <input type="submit" value="Registration" />
     </form>
 
 </div>

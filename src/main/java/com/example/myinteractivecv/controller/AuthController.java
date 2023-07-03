@@ -35,13 +35,13 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/registration")
-    public ResponseEntity<?> register(@ModelAttribute("user") User user) {
-        Role role = user.getRole() == null ? CANDIDATE : user.getRole();
-        if (authService.register(user, role)) {
-            return ResponseEntity.status(HttpStatus.CREATED).build();
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
-    }
+//    @PostMapping("/registration")
+//    public ResponseEntity<?> register(@ModelAttribute("user") User user) {
+//        Role role = user.getRole() == null ? CANDIDATE : user.getRole();
+//        if (authService.register(user, role)) {
+//            return ResponseEntity.status(HttpStatus.CREATED).build();
+//        } else {
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+//        }
+//    }
 }

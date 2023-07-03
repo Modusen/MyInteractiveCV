@@ -6,7 +6,6 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Registration</title>
-    <!--  <script type="text/javascript" src="/js/jquery-3.6.0.js"></script>-->
 </head>
 
 <body>
@@ -23,6 +22,7 @@
     </div>
 
     <br>
+
     <h2>Hello!! <br> This is MyInteractiveCV registration page</h2>
     <form name="f" th:method="POST" th:action="@{/registration}" th:object="${user}">
 
@@ -71,7 +71,18 @@
         <div style="color:red" th:if="${#fields.hasErrors('aboutMe')}" th:errors="*{aboutMe}">About Me</div>
         <br>
         <br>
-        <input type="submit" value="Register">
+        <label for="role">Вы:
+            <input type="radio" id="role"
+                   name="role" value="HR">
+            <label for="role">Рекрутер</label>
+
+            <input type="radio" id="role2"
+                   name="role" value="CANDIDATE">
+            <label for="role2">Соискатель</label>
+        </label>
+        <br>
+        <br>
+        <input type="submit" value="Register" onClick='/login'>
     </form>
 
 </div>
