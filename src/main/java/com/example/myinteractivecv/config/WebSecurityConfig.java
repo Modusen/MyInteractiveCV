@@ -25,7 +25,8 @@ public class WebSecurityConfig {
             "/v3/api-docs",
             "/webjars/**",
             "/login",
-            "/registration"
+            "/registration",
+            "/"
     };
 
     @Bean
@@ -36,7 +37,7 @@ public class WebSecurityConfig {
                         (authorization) ->
                                 authorization
                                         .mvcMatchers(AUTH_WHITELIST).permitAll()
-                                        .mvcMatchers("/greetings/**")
+                                        .mvcMatchers("/greetings", "/candidates","/recruiters","/myPage")
                                         .authenticated())
                 .formLogin().loginPage("/login").loginProcessingUrl("/login")
                 .defaultSuccessUrl("/greetings", true)
