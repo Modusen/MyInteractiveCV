@@ -4,35 +4,130 @@
       lang="en">
 
 <head>
+    <meta charset="UTF-8" />
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>HomePage</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+
     <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+<!--    <link rel="manifest" href="/site.webmanifest" />-->
+
+    <style>
+    .rounded-img {
+        border-radius: 20%;
+        box-shadow: 0 0 10px rgba(4, 55, 224, 0.5);
+    }
+    </style>
 </head>
 
 <body>
-<div class="w3-container">
-    <div class="w3-container w3-bar w3-blue">
-        <span class="w3-bar-item" style=""><b>Home page</b></span>
-
-        <span class="w3-bar-item w3-button" style="float: right;">
-            <img th:src="@{/images/icon_logout.jpg}"
-                 alt="Logout"
-                 style="width:27px;height:27px;"
-                 title="Logout"
-                 id="btnLogout">
-        </span>
-
-        <a href="/registration" class="w3-bar-item w3-button" style="float: right;">
-            <img th:src="@{/images/icon_registration.png}"
-                 alt="Registration"
-                 style="width:27px;height:27px;"
-                 title="registration"></a>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand p-0" href="/"
+            ><img src="images/CV1.png" alt="Logo" width="250"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="/candidates">Candidates</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/recruiters">Recruiters</a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/myPage">My Page</a>
+                </li>
+            </ul>
+          </div>
+          <a class="navbar-brand p-0" href="/login"
+            ><img src="images/Login.png" alt="Login" width="75"
+          /></a>
+          <span class="w3-bar-item w3-button" style="float: right;">
+            <img th:src="@{/images/Logout.png}"
+              alt="Logout"
+              style="width:100px;height:35px;"
+              title="Logout"
+              id="btnLogout">
+          </span>
+          <a class="navbar-brand p-0" href="/registration"
+            ><img src="images/Register.png" alt="Register" width="120"
+          /></a>
+        </div>
+      </nav>
     </div>
 
-    <br>
-    <h2>Hello!! <br> This is MyInteractiveCV Application</h2>
+    <div class="container text-center my-3">
+        <div class="row">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <img
+              class="rounded-img"
+              src="images/photo1.jpg"
+              width="300"
+              height="350"
+              alt="Dmitriy"
+            />
+            <h1 class="fw-light">От автора</h1>
+            <p class="lead text-muted">
+              Приветствую Вас в веб-приложении InteractiveCV. Здесь кандидаты могут представить своё резюме в интерактивном виде. Рекрутёры могут оставить информацию о компаниях и вакансиях, ознакомиться с резюме кандидата. В разработке чат с кандидатом посредством телеграм бота.
+              Приглашаю познакомиться со мной через социальные сети:
+            </p>
+            <a
+              href="https://t.me/DmitriyAstrashenya"
+              target="_blank"
+              class="btn btn-primary"
+            >
+              Telegram
+            </a>
+            <a
+              href="https://vk.com/id22582014"
+              target="_blank"
+              class="btn btn-primary"
+            >
+              VK
+            </a>
+            <a
+              href="https://github.com/Modusen"
+              target="_blank"
+              class="btn btn-secondary"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://stepik.org/users/515292963/profile"
+              target="_blank"
+              class="btn btn-secondary"
+            >
+              Stepik
+            </a>
+          </div>
+        </div>
 
     <script type="text/javascript">
 
@@ -43,7 +138,7 @@
                 type: "GET",
                 url: '/logout',
                 success: function(result){
-                    location.href="/login";
+                    location.href="/";
                     window.setTimeout(function(){
                         location.reload();
                     }, 1000);
